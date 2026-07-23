@@ -1,0 +1,23 @@
+input {
+  width: 150px;
+  outline: none;
+  padding: 13px;
+  border: 1px solid blue;
+  border-radius: 45px;
+  background-color: white;
+}
+button {
+  padding: 13px 23px;
+  border: none;
+  border-radius: 45px;
+  border: 1px solid black;
+  color:white;
+  cursor: pointer;
+}
+span {
+  border: 2px solid red;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  margin: 3px;  
+}

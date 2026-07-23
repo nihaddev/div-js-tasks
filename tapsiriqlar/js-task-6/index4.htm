@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="num" />
+    <button onclick="multi()">Ok</button>
+    <div id="txt" style="margin-top: 30px"></div>
+    <script>
+      function multi() {
+        let result = "";
+        const num = Number(document.getElementById("num").value);
+        let txt = document.getElementById("txt");
+        for (let i = num; i >= 1; i--) {
+          if (num <= 0) return;
+          else result += `<span>${i}</span>`;
+        }
+        txt.innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

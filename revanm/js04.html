@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>0</h1>
+    <button onclick="artir()">artir</button>
+     <button onclick="azalt()">azalt</button>
+      <button onclick="reset()">reset</button>
+    <script>
+      const h1 = document.querySelector("h1");
+      function artir() {
+        h1.innerHTML = +h1.innerText + 1;
+      }
+      function azalt(){
+        h1.innerHTML = +h1.innerText - 1;
+      }
+      function reset(){
+        h1.innerHTML = 0;
+      }
+    </script>
+  </body>
+</html>

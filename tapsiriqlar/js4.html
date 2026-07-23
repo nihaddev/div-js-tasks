@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+    <div>
+        <h3>1. Sadə Kalkulyator</h3>
+        <input type="number" id="calcNum1" placeholder="Ədəd 1">
+        <select id="calcOp">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="invalid">Yanlış əməliyyat</option>
+        </select>
+        <input type="number" id="calcNum2" placeholder="Ədəd 2">
+        <button onclick="hesablaKalkulyator()">Hesabla</button>
+        <div id="calcResult"></div>
+    </div>
+
+    <br>
+
+    <div>
+        <h3>2. Bədən Kütlə İndeksi (BMI)</h3>
+        <input type="number" id="bmiWeight" placeholder="Çəki (kq)" step="0.1">
+        <input type="number" id="bmiHeight" placeholder="Boy (metr)" step="0.01">
+        <button onclick="hesablaBMI()">Hesabla</button>
+        <div id="bmiResult"></div>
+    </div>
+
+    <br>
+
+    <div>
+        <h3>3. Fəsil təyini</h3>
+        <input type="number" id="monthNum" placeholder="Ayın nömrəsi (1-12)">
+        <button onclick="tapFesil()">Tap</button>
+        <div id="monthResult"></div>
+    </div>
+
+    <br>
+
+    <div>
+        <h3>4. Elektrik enerjisi haqqı</h3>
+        <input type="number" id="kwhAmount" placeholder="kWh" step="0.1">
+        <button onclick="hesablaElektrik()">Hesabla</button>
+        <div id="electricResult"></div>
+    </div>
+</div>
+
+<script>
+    function hesablaKalkulyator() {
+        let num1 = parseFloat(document.getElementById('calcNum1').value);
+        let num2 = parseFloat(document.getElementById('calcNum2').value);
+        let op = document.getElementById('calcOp').value;
+        let resultDiv = document.getElementById('calcResult');
+
+        if (isNaN(num1) || isNaN(num2)) {
+            resultDiv.innerText = "Ədədləri daxil edin.";
+            return;
+        }
+
+        if (op === "+") {
+            resultDiv.innerText = num1 + num2;
+        } else if (op === "-") {
+            resultDiv.innerText = num1 - num2;
+        } else if (op === "*") {
+            resultDiv.innerText = num1 * num2;
+        } else if (op === "/") {
+            if (num2 === 0) {
+                resultDiv.innerText = "0-a bölmək olmaz";
+            } else {
+                resultDiv.innerText = num1 / num2;
+            }
+        } else {
+            resultDiv.innerText = "Yanlış əməliyyat";
+        }
+    }
+
+    function hesablaBMI() {
+        let weight = parseFloat(document.getElementById('bmiWeight').value);
+        let height = parseFloat(document.getElementById('bmiHeight').value);
+        let resultDiv = document.getElementById('bmiResult');
+
+        if (!weight || !height) {
+            resultDiv.innerText = "Məlumatları daxil edin.";
+            return;
+        }
+
+        let bmi = weight / (height * height);
+        let status = "";
+
+        if (bmi < 18.5) {
+            status = "Arıq";
+        } else if (bmi <= 24.9) {
+            status = "Normal";
+        } else if (bmi <= 29.9) {
+            status = "Artıq çəkili";
+        } else {
+            status = "Piylənmə";
+        }
+
+        resultDiv.innerText = bmi.toFixed(2) + " - " + status;
+    }
+
+    function tapFesil() {
+        let month = parseInt(document.getElementById('monthNum').value);
+        let resultDiv = document.getElementById('monthResult');
+
+        if (isNaN(month) || month < 1 || month > 12) {
+            resultDiv.innerText = "Yanlış ay";
+        } else if (month === 12 || month === 1 || month === 2) {
+            resultDiv.innerText = "Qış";
+        } else if (month === 3 || month === 4 || month === 5) {
+            resultDiv.innerText = "Yaz";
+        } else if (month === 6 || month === 7 || month === 8) {
+            resultDiv.innerText = "Yay";
+        } else if (month === 9 || month === 10 || month === 11) {
+            resultDiv.innerText = "Payız";
+        }
+    }
+
+    function hesablaElektrik() {
+        let kwh = parseFloat(document.getElementById('kwhAmount').value);
+        let resultDiv = document.getElementById('electricResult');
+
+        if (isNaN(kwh) || kwh < 0) {
+            resultDiv.innerText = "Düzgün dəyər daxil edin.";
+            return;
+        }
+
+        let totalCost = 0;
+
+        if (kwh <= 100) {
+            totalCost = kwh * 0.1;
+        } else if (kwh <= 200) {
+            totalCost = (100 * 0.1) + ((kwh - 100) * 0.15);
+        } else {
+            totalCost = (100 * 0.1) + (100 * 0.15) + ((kwh - 200) * 0.2);
+        }
+
+        resultDiv.innerText = totalCost.toFixed(2) + " AZN";
+    }
+</script>
+
+</body>
+</html>

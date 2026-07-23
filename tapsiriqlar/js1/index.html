@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Task 1</p>
+    <br />
+    <input type="text" id="ad1">
+    <button onclick="deyis()">=</button>
+    <input type="text" id="ad2">
+    <span id="nam" style="display: none;"></span>
+
+
+    Task 2
+    <br>
+    <input type="number" id="bir">
+    <br>
+    <input type="number" id="iki">
+    <br>
+    <input type="number" id="uc">
+    <button onclick="hesab()">Ok</button>
+    <div id="txt"></div>
+
+
+    <script>
+        function hesab() {
+            let bir = document.getElementById('bir')
+            let iki = document.getElementById('iki')
+            let uc = document.getElementById('uc')
+            let txt = document.getElementById('txt')
+            txt.innerHTML = `<ul>
+        <li>Cem:${+bir.value + +iki.value + +uc.value}</li>
+        <li>Cix:${bir.value - iki.value - uc.value}</li>
+        <li>Orta:${(+bir.value + +iki.value + +uc.value) / 3}</li>
+        <li>Orta:${(bir.value * iki.value * uc.value)}</li>
+        </ul>`
+        }
+    </script>
+    <script>
+        function deyis() {
+            let ad1 = document.getElementById('ad1')
+            let ad2 = document.getElementById('ad2')
+            let nam = document.getElementById('nam')
+            nam.innerText = ad1.value
+            ad1.value = ad2.value
+            ad2.value = nam.innerText
+        }
+    </script>
+</body>
+
+</html>

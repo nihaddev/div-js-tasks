@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #calculator {
+        display: table;
+        margin: auto;
+        padding: 40px 20px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+      }
+      input,
+      button {
+        border: 1px solid #333;
+        border-box: 5px;
+        padding: 5px 10px;
+      }
+      button {
+        width: 50px;
+        height: 40px;
+        margin: 5px;
+        box-shadow: 3px 2px #333;
+      }
+      input {
+        width: 220px;
+        margin: 5px;
+        height: 30px;
+        box-shadow: 3px 2px 3px #333 inset;
+      }
+      #eq {
+        width: 115px;
+        background-color: orange;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calculator">
+      <div>
+        <input type="text" name="" id="display" />
+      </div>
+      <div>
+        <button onclick="clean()">C</button>
+        <button onclick="show('**')">**</button>
+        <button onclick="show('<=')"><=</button>
+        <button onclick="show('/')">/</button>
+      </div>
+      <div>
+        <button onclick="show('7')">7</button>
+        <button onclick="show('8')">8</button>
+        <button onclick="show('9')">9</button>
+        <button onclick="show('*')">*</button>
+      </div>
+      <div>
+        <button onclick="show('4')">4</button>
+        <button onclick="show('5')">5</button>
+        <button onclick="show('6')">6</button>
+        <button onclick="show('-')">-</button>
+      </div>
+      <div>
+        <button onclick="show('3')">3</button>
+        <button onclick="show('2')">2</button>
+        <button onclick="show('1')">1</button>
+        <button onclick="show('+')">+</button>
+      </div>
+
+      <div>
+        <button onclick="show('0')">0</button>
+        <button onclick="show('.')">.</button>
+        <button onclick="calc()" id="eq">=</button>
+      </div>
+    </div>
+    <script>
+      const display = document.getElementById("display");
+      function show(z) {
+        display.value += z;
+      }
+      function clean() {
+        display.value = "";
+      }
+      function calc() {
+        if (display.value === "") return (display.value = "");
+        let cevap = eval(display.value);
+        display.value = cevap;
+      }
+    </script>
+  </body>
+</html>

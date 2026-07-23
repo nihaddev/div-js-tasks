@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #sekil {
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+        box-shadow: 0 0 10px #333;
+      }
+      div {
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <fieldset>
+        <legend>meyve</legend>
+        <label> <input onclick="changeImg('alma')" type="radio" name="meyve" id="alma" checked="true"/>Alma</label>
+        <label> <input onclick="changeImg('heyva')" type="radio" name="meyve" id="heyva" />Heyva</label>
+        <label> <input onclick="changeImg('nar')" type="radio" name="meyve" id="nar" />Nar</label>
+      </fieldset>
+    </div>
+   <img id="sekil" src="img/alma.jpeg" />
+    <script>
+        let sekil = document.getElementById("sekil");
+        let meyveler = document.querySelectorAll('input[name="meyve"]');
+        
+       /*  meyveler.forEach(function(meyve) {
+            meyve.addEventListener("change", function() {
+                if (this.checked) {
+                    sekil.src = "img/" + this.id + ".jpeg";
+                }
+            });
+        }); */
+        function changeImg(imgn){
+            sekil.src = "img/" + imgn + ".jpeg";
+        }
+    </script>
+  </body>
+</html>

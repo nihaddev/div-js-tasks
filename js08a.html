@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="reqem" />
+    <button id="ok" onclick="ok()">ok</button>
+    <table id="cedvel"></table>
+
+    <script>
+      function ok (){
+       let cedvel = document.getElementById('cedvel');
+       let reqem = document.getElementById('reqem').value;
+       let netice = ''
+       for(let i = n; i >= 1, i-- ){
+         netice = `<td>${i}</td>`
+       }
+       cedvel.innerHTML = `<tr>${netice}</tr>`
+      }
+    </script>
+  </body>
+</html>

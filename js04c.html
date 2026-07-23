@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <fieldset>
+        <legend>Sex</legend>
+        <label><input type="radio" name="" id="f">Female</label>
+        <label><input type="radio" name="" id="m" checked="checked">Male</label>
+    </fieldset>
+    <button onclick="tap()">OK</button>
+    <h1></h1>
+    <script>
+        let name = document.getElementById("name")
+        let f = document.getElementById("f")
+        let m = document.getElementById("m")
+        let res = document.querySelector("h1")
+        function tap(){
+           if(f.checked){
+               res.innerHTML = `Hello ${name.value}, xanim`
+           } else if(m.checked){
+               res.innerHTML = `Hello ${name.value}, bey`
+           }
+        }
+    </script>
+</body>
+</html>

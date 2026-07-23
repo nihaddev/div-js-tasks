@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="n">
+    <button onclick="checkNumber()">OK</button>
+    <h1></h1>
+    <script>
+        const getn = document.getElementById("n")
+        const h1 = document.querySelector("h1")
+        // tek yoxsa cut 
+        function checkNumber(){
+            if(getn.value % 2 === 0){
+                h1.innerHTML = `cut`
+            }else{
+                h1.innerHTML = `tek`
+            }
+        }
+    </script>
+</body>
+</html>

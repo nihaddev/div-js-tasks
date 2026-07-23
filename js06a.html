@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #slider{
+            width:80%;
+            height: 80vh;
+            margin: 10vh auto;
+            box-shadow: 1px #333 solid;
+        }
+        button{
+            border:none;
+            cursor: pointer;
+            
+        }
+        button:hover{
+            opacity: 0.8;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="slider" style="background: url('img/haaaland.png') center/cover">
+        <button onclick="previousSlide()" style="position: absolute; left: 170px; top: 50%; transform: translateY(-50%); z-index: 1;background: white;padding: 15px 22px;border-radius: 22px;">←</button>
+        <button onclick="nextSlide()" style="position: absolute; right: 170px; top: 50%; transform: translateY(-50%); z-index: 1;background: white;padding: 15px 22px;border-radius: 22px">→</button>
+    </div>
+    <script>
+       const slider = document.getElementById("slider");
+   
+       let currentSlide = 0;
+       const images = ["img/haaaland.png", "img/modric.png", "img/dictatormbappe.jpeg", "img/redcard.jpeg"];
+       slider.style.background = "url('img/haaaland.png') center/cover"
+        function previousSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = images.length - 1;
+            }
+            slider.style.background = `url('${images[currentSlide]}') center/cover`;
+        }
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= images.length) {
+                currentSlide = 0;
+            }
+            slider.style.background = `url('${images[currentSlide]}') center/cover`;
+        }
+      
+    </script>
+</body>
+</html>

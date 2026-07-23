@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #sekil {
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+        box-shadow: 0 0 10px #333;
+      }
+      div {
+        padding: 10px 0;
+      }
+      input {
+        width: 40px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="number" name="" id="a" />
+    <input type="number" name="" id="b" />
+    <button onclick="hesabla()">=</button>
+    <span id="res">2 , qaliq 1</span>
+    <script>
+        function hesabla(){
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let bolme = a / b;
+            let qaliq = a % b;
+            document.getElementById("res").innerHTML = `${bolme} , qaliq ${qaliq}`;
+        }
+    </script>
+  </body>
+</html>

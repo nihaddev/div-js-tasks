@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="num" />
+    <button id="ok" onclick="ok()">ok</button>
+    <div id="res"></div>
+
+    <script>
+      /*
+           *
+           **
+           ***
+           ****
+           ****
+           *****
+           ******
+           *******
+
+        */
+
+      // '*' * i
+      function ok() {
+        let num = document.getElementById("num").value;
+        let res = document.getElementById("res");
+        let output = "";
+        let stars = ""; // Ulduzları bir-bir artırmaq üçün
+
+        for (let i = 1; i <= num; i++) {
+          stars += "*"; // Hər dövrdə 1 ulduz əlavə olunur
+          output += stars + "<br>"; // Əldə olunan ulduz sətiri output-a yazılır
+        }
+
+        res.innerHTML = output;
+      }
+    </script>
+  </body>
+</html>

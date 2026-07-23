@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 50px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="number" id="x"/>
+    
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    
+    <input type="number" id="y"/>
+    <button onclick="save()">=</button>
+    <span id="res"></span>
+
+    <script>
+        function save(){
+            let x = document.getElementById("x");
+            let y = document.getElementById("y");
+            let res = document.getElementById("res");
+            
+    
+            let operator = document.getElementById("operator").value; 
+
+            res.innerHTML = eval(`${x.value} ${operator} ${y.value}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="" id="ad" />
+    <button onclick="hsb()">OK</button>
+    <h1 id="msj"></h1>
+    <script>
+      const ad = document.getElementById("ad");
+      const msj = document.getElementById("msj");
+      let saat = new Date().getHours();
+      function hsb() {
+        let salam = ''
+        if(saat >= 6 && saat < 12 ) salam = 'sabahiniz xeyir'
+        else if (saat >= 12 && saat < 18) salam = 'her vaxtiniz xeyir'
+        else if (saat >= 18 && saat < 24) salam = 'axşamınız xeyir'
+        else salam = 'gece xeyir'
+        msj.innerText = `${salam}, ${ad.value}`
+      }
+    </script>
+  </body>
+</html>

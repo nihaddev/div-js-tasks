@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 43px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="number" min="0" max="100" id="a">x<sup>2</sup>+
+    <input type="number" min="0" max="100"  id="b">x+
+    <input type="number" min="0" max="100"  id="c"><button onclick="tenlikHell()">=</button>
+    <span>0</span>
+    <div id="d"></div>
+
+
+    <script>
+        let a = document.getElementById('a')
+        let b = document.getElementById('b')
+        let c = document.getElementById('c')
+        let d = document.getElementById('d')
+
+        function tenlikHell() {
+            d.innerText = b.value ** 2 - (4 * a.value * c.value)
+            let x1;
+            let x2;
+            let x; 
+            if (d.innerText > 0) {
+                x1 = (-b.value + d.innerText ** 0.5) / 2 * a.value
+                x2 = (-b.value - d.innerText ** 0.5) / 2 * a.value
+                d.innerHTML = `koku var.  <br> birinci kok:${x1} <br> ikinci kok:${x2}`
+            }
+            else if (d.innerText==0) {
+                x=-b.value/2*a.value
+                d.innerText=`diskiriminat ${d.innerText} oldugu ucun kokler beraberdir ${x}`
+                console.log(d.innerText)
+            }
+            else {
+                d.innerText = `koku yoxdu`
+            }
+        }
+    </script>
+</body>
+
+</html>

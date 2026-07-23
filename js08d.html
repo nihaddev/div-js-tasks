@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Matrix Patterns</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #34495e;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .matrix-table {
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .matrix-table td {
+      width: 34px;
+      height: 34px;
+      border: 1px solid #000;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 16px;
+      font-family: monospace;
+      background-color: #fff;
+    }
+
+    .empty-cell {
+      background-color: #fff !important;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Naxış Cədvəlləri</h1>
+
+  <div class="grid-container">
+    <div class="card">
+      <h3>1. Ardıcıl ədədlər (1-25)</h3>
+      <table class="matrix-table" id="p1"></table>
+    </div>
+
+    <div class="card">
+      <h3>2. Şahmat sıfır-bir naxışı</h3>
+      <table class="matrix-table" id="p2"></table>
+    </div>
+
+    <div class="card">
+      <h3>3. Sətir və sütun cəmi artan</h3>
+      <table class="matrix-table" id="p3"></table>
+    </div>
+
+    <div class="card">
+      <h3>4. Təkrarlanan sütunlar</h3>
+      <table class="matrix-table" id="p4"></table>
+    </div>
+
+    <div class="card">
+      <h3>5. Üçbucaq şəkilli ədədlər</h3>
+      <table class="matrix-table" id="p5"></table>
+    </div>
+
+    <div class="card">
+      <h3>6. Yalnız tək sütunlar</h3>
+      <table class="matrix-table" id="p6"></table>
+    </div>
+
+    <div class="card">
+      <h3>7. Yalnız tək ədədlər</h3>
+      <table class="matrix-table" id="p7"></table>
+    </div>
+
+    <div class="card">
+      <h3>8. Qum saatı forması</h3>
+      <table class="matrix-table" id="p8"></table>
+    </div>
+  </div>
+
+  <script>
+    // 1. Ardıcıl ədədlər (1-dən 25-ə kimi)
+    (function pattern1() {
+      let table = document.getElementById('p1');
+      let count = 1;
+      for (let i = 0; i < 5; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 0; j < 5; j++) {
+          let td = document.createElement('td');
+          td.textContent = count++;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    })();
+
+    // 2. Şahmat 0-1
+    (function pattern2() {
+      let table = document.getElementById('p2');
+      for (let i = 0; i < 5; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 0; j < 5; j++) {
+          let td = document.createElement('td');
+          td.textContent = (i + j) % 2;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    })();
+
+    // 3. Sətir və sütun cəmi artan
+    (function pattern3() {
+      let table = document.getElementById('p3');
+      for (let i = 1; i <= 5; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 1; j <= 5; j++) {
+          let td = document.createElement('td');
+          td.textContent = i + j - 1;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    })();
+
+    // 4. Təkrarlanan sütunlar (1-5)
+    (function pattern4() {
+      let table = document.getElementById('p4');
+      for (let i = 1; i <= 5; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 1; j <= 5; j++) {
+          let td = document.createElement('td');
+          td.textContent = j;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    })();
+
+    // 5. Üçbucaq şəkilli ədədlər
+    (function pattern5() {
+      let table = document.getElementById('p5');
+      for (let i = 1; i <= 5; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 1; j <= 5; j++) {
+          let td = document.createElement('td');
+          if (j <= i) {
+            td.textContent = j;
+          } else {
+            td.className = 'empty-cell';
+          }
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    })();
+
+    // 6. Yalnız tək sütunlar (1, 3, 5)
+    (function pattern6() {
+      let table = document.getElementById('p6');
+      for (let i = 1; i <= 5; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 1; j <= 5; j++) {
+          let td = document.createElement('td');
+          if (j % 2 !== 0) {
+            td.textContent = j;
+          } else {
+            td.className = 'empty-cell';
+          }
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    })();
+
+    // 7. Yalnız tək ədədlər
+    (function pattern7() {
+      let table = document.getElementById('p7');
+      let count = 1;
+      for (let i = 1; i <= 5; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 1; j <= 5; j++) {
+          let td = document.createElement('td');
+          if (count % 2 !== 0) {
+            td.textContent = count;
+          } else {
+            td.className = 'empty-cell';
+          }
+          count++;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    })();
+
+    // 8. Qum saatı (Hourglass) forması
+    (function pattern8() {
+      let table = document.getElementById('p8');
+      for (let i = 0; i < 7; i++) {
+        let tr = document.createElement('tr');
+        let spaces = 3 - Math.abs(3 - i);
+        let maxNum = Math.abs(3 - i) + 1;
+        
+        let rowValues = [];
+        for (let s = 0; s < spaces; s++) rowValues.push('');
+        for (let n = 1; n <= maxNum; n++) rowValues.push(n);
+        for (let n = maxNum - 1; n >= 1; n--) rowValues.push(n);
+        for (let s = 0; s < spaces; s++) rowValues.push('');
+
+        for (let c = 0; c < 7; c++) {
+          let td = document.createElement('td');
+          let val = rowValues[c];
+          if (val !== undefined && val !== '') {
+            td.textContent = val;
+          } else {
+            td.className = 'empty-cell';
+          }
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+    })();
+  </script>
+</body>
+</html>

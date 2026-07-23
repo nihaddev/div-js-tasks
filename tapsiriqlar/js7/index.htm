@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center;
+        padding-top: 35px;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #999;
+        text-align: center;
+        font: 700 2rem Arial;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="tbl"></table>
+    <table id="tbl2"></table>
+    <table id="tbl3"></table>
+    <table id="tbl4"></table>
+    <table id="tbl5"></table>
+    <table id="tbl6"></table>
+    <table id="tbl7"></table>
+
+    <script>
+      const tbl = document.getElementById("tbl");
+      let kod = "";
+      let x = 1;
+      for (let i = 1; i <= 5; i++) {
+        kod += "<tr>";
+        for (let j = 1; j <= 5; j++) {
+          kod += `<td>${x++}</td>`;
+        }
+        kod += "</tr>";
+      }
+      tbl.innerHTML = kod;
+
+      const tbl2 = document.getElementById("tbl2");
+      let kod1 = "";
+      for (let i = 1; i <= 5; i++) {
+        kod1 += "<tr>";
+        for (let j = 1; j <= 5; j++) {
+          if ((i + j) % 2 == 0) {
+            kod1 += `<td>0</td>`;
+          } else {
+            kod1 += `<td>1</td>`;
+          }
+        }
+        kod1 += "</tr>";
+      }
+      tbl2.innerHTML = kod1;
+
+      const tbl3 = document.getElementById("tbl3");
+      let kod2 = "";
+
+      for (let i = 1; i <= 5; i++) {
+        kod2 += "<tr>";
+        for (let j = 1; j <= 5; j++) {
+          kod2 += `<td>${i + j - 1}</td>`;
+        }
+        kod2 += "</tr>";
+      }
+      tbl3.innerHTML = kod2;
+
+      const tbl4 = document.getElementById("tbl4");
+      let kod3 = "";
+
+      for (let i = 1; i <= 5; i++) {
+        kod3 += "<tr>";
+        for (let j = 1; j <= 5; j++) {
+          kod3 += `<td>${j}</td>`;
+        }
+        kod3 += "</tr>";
+      }
+      tbl4.innerHTML = kod3;
+
+      const tbl5 = document.getElementById("tbl5");
+      let kod4 = "";
+
+      for (let i = 1; i <= 5; i++) {
+        kod4 += "<tr>";
+        for (let j = 1; j <= 5; j++) {
+          if (j <= i) {
+            kod4 += `<td>${j}</td>`;
+          } else {
+            kod4 += `<td></td>`;
+          }
+        }
+        kod4 += "</tr>";
+      }
+      tbl5.innerHTML = kod4;
+
+      const tbl6 = document.getElementById("tbl6");
+      let kod5 = "";
+
+      for (let i = 1; i <= 5; i++) {
+        kod5 += "<tr>";
+        for (let j = 1; j <= 5; j++) {
+          if (j % 2 == 1) {
+            kod5 += `<td>${j}</td>`;
+          } else {
+            kod5 += `<td></td>`;
+          }
+        }
+        kod5 += "</tr>";
+      }
+      tbl6.innerHTML = kod5;
+
+      const tbl7 = document.getElementById("tbl7");
+      let kod6 = "";
+      let count = 1;
+
+      for (let i = 1; i <= 5; i++) {
+        kod6 += "<tr>";
+        for (let j = 1; j <= 5; j++) {
+          if (count % 2 == 1) {
+            kod6 += `<td>${count}</td>`;
+          } else {
+            kod6 += `<td></td>`;
+          }
+          count++;
+        }
+        kod6 += "</tr>";
+      }
+      tbl7.innerHTML = kod6;
+    </script>
+  </body>
+</html>

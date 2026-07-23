@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="a"/>
+    +
+    <input id="b"/>
+    <button onclick="save()">=</button>
+    <span id="c"></span>
+    <script>
+        function save(){
+            let a = document.getElementById("a");
+            let b = document.getElementById("b");
+            let c = document.getElementById("c");
+            c.innerHTML = Number(a.value) + Number(b.value);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <ul>
+        
+    </ul>
+    <script>
+       /*
+           2x1 =
+           2x2=4
+           2x3=6
+           2x4=8
+           ...
+           2x9=18
+
+       */
+      //2 ye vurma cedvelini ul icinde yazmaq yuxaridaki numun ekimi
+      const ul = document.querySelector('ul');
+      for(let i = 1; i <= 9; i++) {
+          const li = document.createElement('li');
+          li.textContent = `2 x ${i} = ${2 * i}`;
+          ul.appendChild(li);
+      }
+    </script>
+</body>
+</html>

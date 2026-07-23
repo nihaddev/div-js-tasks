@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #sekil {
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+        box-shadow: 0 0 10px #333;
+      }
+      div {
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <select name="" id="meyve" onchange="changeImage()">
+        <option value="alma.jpeg">Alma</option>
+        <option value="heyva.jpeg">Heyva</option>
+        <option value="nar.jpeg">Nar</option>
+      </select>
+     
+    </div>
+     <img src="img/alma.jpeg" alt="" id="sekil" />
+     <script>
+        let meyve = document.getElementById("meyve");
+        let sekil = document.getElementById("sekil");
+        function changeImage() {
+          sekil.src = "img/" + meyve.value;
+        }
+     </script>
+  </body>
+</html>

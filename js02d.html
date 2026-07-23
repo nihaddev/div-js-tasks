@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        width: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="number" id="a1" value="8" />
+
+    <input type="number" id="a2" value="4" />
+
+    <button onclick="save()">=</button>
+    <div id="ntc"></div>
+
+    <script>
+      function save() {
+        let x = document.getElementById("a1");
+        let y = document.getElementById("a2");
+
+        let res = document.getElementById("ntc");
+        res.innerHTML = `
+           <ul>
+            <li>cem: ${Number(x.value) + Number(y.value)}</li>
+            <li>ferq: ${Number(x.value) - Number(y.value)}</li>
+            <li>Hasil: ${Number(x.value) * Number(y.value)}</li>
+            <li>Qismet: ${Number(x.value) / Number(y.value)}</li>
+          </ul>
+        `;
+      }
+    </script>
+  </body>
+</html>
