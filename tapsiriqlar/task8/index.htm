@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <style>
+      table {
+        margin: auto;
+        border-collapse: collapse;
+      }
+
+      td {
+        text-align: center;
+        font: bold 2em Arial;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #333;
+      }
+
+      .green {
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table id="cdv"></table>
+    <script>
+      let cdv = document.getElementById("cdv");
+      let kod = "";
+
+      for (let i = 1; i <= 8; i++) {
+        kod += `<tr>`;
+        for (let j = 1; j <= 8; j++) {
+          if ((i <= j && i + j <= 9) || (i >= j && i + j >= 9)) {
+            kod += `<td class="green">${i}/${j}</td>`;
+          } else {
+            kod += `<td>${i}/${j}</td>`;
+          }
+        }
+        kod += `</tr>`;
+      }
+      cdv.innerHTML = kod;
+    </script>
+  </body>
+</html>
