@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numarr = []
+        for(let i = 1; i < 20; i++){
+            numarr.push(rnd(1, 20))
+        }
+
+
+        console.log(numarr);
+        console.log('Sum:', sum(numarr)) 
+
+        function sum(arr) {
+            let s = 0
+            for (let i = 0; i < arr.length; i++) {
+            s += arr[i]
+            }
+            return s
+        }
+
+        function rnd(min, max){
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        
+        
+
+    </script>
+</body>
+</html>

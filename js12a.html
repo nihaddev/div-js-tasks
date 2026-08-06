@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 50px auto;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #333;
+            text-align: center;
+            font: bold 2em Arial;
+        }
+    </style>
+</head>
+<body>
+<table id="cdv"></table>
+<script>
+   const arr = []
+   for (let i = 0; i < 20; i++){
+    arr.push(rnd(1, 100))
+   }
+   function min(arr) {
+    // en balaca ededi goster
+    let min = arr[0]
+    for (let i = 1; i < arr.length; i++){
+        if (arr[i] < min){
+            min = arr[i]
+        }
+    }
+    return min
+   }
+   function rnd(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+   }
+   console.log(arr)
+   console.log(min(arr))
+</script>
+
+</body>
+</html>

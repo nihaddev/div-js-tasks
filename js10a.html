@@ -5,7 +5,7 @@
         <title>Document</title>
         <style>
             table { border-collapse: collapse; }
-            td { font: bold 1.2em Arial; width: 50px; height: 50px; text-align: center;; }
+            td { font: bold 1.2em Arial; width: 50px; height: 50px; text-align: center; cursor: pointer; }
             .black { background: orange; }
             .white { background: yellow; }
         </style>
@@ -13,35 +13,56 @@
     <body>
         <select id="letter"></select>
         <select id="number"></select>
-        <button>Ok</button>
+        <button onclick="chess()">Ok</button>
 
         <table id="cdv"></table>
         <script>
-            let kod=""
             let cdv = document.getElementById('cdv')
             let letter = document.getElementById('letter')
             let number = document.getElementById('number')
             let abc = ' ABCDEFGH'
-
+            
             for (let i = 1; i <= 8; i++) {
-                letter.innerHTML += `<option>${abc[i]}</option>`
-                number.innerHTML += `<option>${i}</option>`
+                letter.innerHTML += `<option value="${i}">${abc[i]}</option>`
+                number.innerHTML += `<option value="${i}">${i}</option>`
             }
 
+            chess(1, 2)
+            
+            function chess(row = number.value, col = letter.value, showMoves = false) {
+                letter.value = col
+                number.value = row
+
+                let moves = [
+                    [row - 2, col - 1], [row - 2, col + 1],
+                    [row - 1, col - 2], [row - 1, col + 2],
+                    [row + 1, col - 2], [row + 1, col + 2],
+                    [row + 2, col - 1], [row + 2, col + 1]
+                ]
+
+                let kod = ""
                 for(let i = 0; i <= 8; i++) {
-                    let n = 1
                     kod += `<tr>`
-                        for(let j = 0; j <= 8; j++){
-                            let color = i == 0 || j == 0 ? '' :
-                                        (i + j) % 2 ? 'black' : 'white'
-                            let cell = i == 0 ? abc[j] :
-                                       j == 0 ? i : 
-                                       i == 1 && j == 2 ? '♞' : ''
-                            kod += `<td class="${color}">${cell}</td>`
-                        }
+                    for(let j = 0; j <= 8; j++){
+                        let color = i == 0 || j == 0 ? '' :
+                                    (i + j) % 2 ? 'black' : 'white'
+
+                        let isKnight = (i == row && j == col)
+                        let isPossibleMove = showMoves && moves.some(m => m[0] == i && m[1] == j)
+
+                        let cell = i == 0 ? abc[j] :
+                                   j == 0 ? i : 
+                                   isKnight ? '♞' : 
+                                   isPossibleMove ? '★' : ''
+
+                        let clickEvent = isKnight ? `chess(${i},${j},true)` : `chess(${i},${j})`
+
+                        kod += `<td onclick="${clickEvent}" class="${color}">${cell}</td>`
+                    }
                     kod += `</tr>`
                 }
-             cdv.innerHTML = kod
+                cdv.innerHTML = kod
+            }
         </script>
     </body>
 </html>

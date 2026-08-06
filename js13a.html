@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <style>
+            table { border-collapse: collapse; margin: auto }
+            td { font: bold 2em Arial; text-align: center;   
+                 width: 100px; height: 100px; border: 1px solid #333; }
+        </style>
+    </head>
+    <body>
+        <table id="cdv"></table>
+
+        <script>
+            const cdv = document.getElementById('cdv')
+            let arr = ['']
+            let kod = ''
+            let x = 0
+            for (let i = 1; i <= 15; i++) arr.push(i)
+            arr.sort( function() { return Math.random() - .5 } )
+
+            for (let i = 1; i <= 4; i++) {
+                kod += '<tr>'
+                for (let j = 1; j <= 4; j++) {
+                    kod += `<td onclick="swipe()">${arr[x++]}</td>`
+                }
+                kod += '</tr>'
+            }
+            cdv.innerHTML = kod
+
+
+        </script>
+    </body>
+</html>

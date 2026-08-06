@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="artir()" id="artir">+</button>
+    <button onclick="azalt()" id="minus">-</button>
+    <button onclick="sum()" id="sum">sum</button>
+    <button onclick="avg()" id="avg">avg</button>
+    <p id="inputs"></p>
+    <h1 id="sumText"></h1>
+    <h1 id="avgText"></h1>
+    <script>
+        const inputs = document.getElementById('inputs')
+        const sumText = document.getElementById('sumText')
+        const avgText = document.getElementById('avgText')
+        let x = 0
+        function artir() {
+            x++
+            inputs.innerHTML += `<input type="text" placeholder="Input ${x}"><br>`
+        }
+        function azalt() {
+            if (x > 0) {
+                x--
+                inputs.innerHTML = inputs.innerHTML.split('<br>').slice(0, -1).join('<br>')
+            }
+        }
+        function sum() {
+            let total = 0
+            const inputElements = inputs.getElementsByTagName('input')
+            for (let i = 0; i < inputElements.length; i++) {
+                const value = parseFloat(inputElements[i].value)
+                if (!isNaN(value)) {
+                    total += value
+                }
+            }
+            sumText.textContent = `Sum: ${total}`
+        }
+        function avg() {
+            let total = 0
+            const inputElements = inputs.getElementsByTagName('input')
+            let count = 0
+            for (let i = 0; i < inputElements.length; i++) {
+                const value = parseFloat(inputElements[i].value)
+                if (!isNaN(value)) {
+                    total += value
+                    count++
+                }
+            }
+            const average = count > 0 ? total / count : 0
+            avgText.textContent = `Average: ${average}`
+        }
+    </script>
+</body>
+</html>
